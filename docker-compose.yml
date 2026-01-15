@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  backend:
+    build: 
+      context: ./backend
+    container_name: hanwen_backend
+    volumes:
+      - ./backend_data:/app/data
+    restart: always
+
+  frontend:
+    build: 
+      context: ./frontend
+    container_name: hanwen_frontend
+    ports:
+      - "4000:80"
+    depends_on:
+      - backend
+    restart: always
