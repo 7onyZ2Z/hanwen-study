@@ -29,7 +29,7 @@ class Task(TaskBase):
     owner_id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class UserBase(BaseModel):
     username: str
@@ -47,7 +47,7 @@ class User(UserBase):
     tasks: List[Task] = []
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class Token(BaseModel):
     access_token: str

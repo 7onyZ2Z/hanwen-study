@@ -154,7 +154,26 @@ import { ref, onMounted, onUnmounted, computed } from 'vue';
 import { useAuthStore } from '../stores/auth';
 import { useRouter, useRoute } from 'vue-router';
 import axios from '../axios';
-import * as echarts from 'echarts';
+
+// ECharts Auto Import Optimization
+import * as echarts from 'echarts/core';
+import { PieChart } from 'echarts/charts';
+import {
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent
+} from 'echarts/components';
+import { CanvasRenderer } from 'echarts/renderers';
+
+// Register specific components
+echarts.use([
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  PieChart,
+  CanvasRenderer
+]);
+
 import { Link, Edit, Check, Calendar } from '@element-plus/icons-vue';
 import { ElMessage } from 'element-plus';
 

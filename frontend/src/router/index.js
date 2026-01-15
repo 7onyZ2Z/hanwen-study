@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Login from '../views/Login.vue'; // Keep Login static for faster initial render
+import Login from '../views/Login.vue';
+import Dashboard from '../views/Dashboard.vue';
+import TaskManage from '../views/TaskManage.vue';
+import AdminDashboard from '../views/AdminDashboard.vue';
 import { useAuthStore } from '../stores/auth';
 
 const routes = [
@@ -11,19 +14,19 @@ const routes = [
   {
     path: '/',
     name: 'Dashboard',
-    component: () => import('../views/Dashboard.vue'),
+    component: Dashboard,
     meta: { requiresAuth: true },
   },
   {
     path: '/tasks',
     name: 'TaskManage',
-    component: () => import('../views/TaskManage.vue'),
+    component: TaskManage,
     meta: { requiresAuth: true },
   },
   {
     path: '/admin',
     name: 'AdminDashboard',
-    component: () => import('../views/AdminDashboard.vue'),
+    component: AdminDashboard,
     meta: { requiresAuth: true, requiresAdmin: true },
   },
 ];
